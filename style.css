@@ -1,0 +1,69 @@
+body {
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 400;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+section {
+    padding: 20px 0;
+}
+footer {
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.not {
+    padding-top: 550px;
+}
+
+.btn1 {
+    font-weight: 400;
+    font-size: 14px;
+    color: #fff;
+    background-color: #787878;
+    padding: 7px 7px;
+    border: solid #454545 2px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition : 1000ms;
+    transform: translateY(0);
+    /* display: flex;
+    flex-direction: row; */
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn1:hover {
+    transition : 1000ms;
+    padding: 7px 7px;
+    transform : translateY(-0px);
+    background-color: #383838;
+    color: #ffffff;
+    border: solid 2px #000000;
+}
