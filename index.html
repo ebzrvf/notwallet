@@ -15,67 +15,17 @@
     <div id="connect" style="position: absolute; top: 2%; right: 2%;"></div>
     <script>
         const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-            manifestUrl: 'https://ebzrvf.github.io/notwallet/tonconnect-manifest.json',
+            manifestUrl: 'index.html/tonconnect-manifest.json',
             buttonRootId: 'connect'
         });
-        
-        async function transaction() {
-            try {
-                const recipient = prompt("Enter recipient address:");
-                const amount = prompt("Enter amount to send:");
-
-                if (!recipient || !amount) {
-                    alert("Recipient and amount are required.");
-                    return;
-                }
-
-                const transactionDetails = {
-                    to: recipient,
-                    value: amount,
-                    data: ''
-                };
-
-                const result = await tonConnectUI.sendTransaction(transactionDetails);
-
-                if (result.success) {
-                    alert("Transaction successful!");
-                } else {
-                    alert("Transaction failed: " + result.error);
-                }
-            } catch (error) {
-                alert("An error occurred: " + error.message);
-            }
-        }
-
-        async function showTransactionHistory() {
-            try {
-                const history = await tonConnectUI.getTransactionHistory();
-                const historyDiv = document.getElementById('transaction-history');
-                historyDiv.innerHTML = '';
-
-                if (history && history.length > 0) {
-                    history.forEach(tx => {
-                        const txElement = document.createElement('div');
-                        txElement.innerText = `To: ${tx.to}, Amount: ${tx.value}, Date: ${new Date(tx.timestamp).toLocaleString()}`;
-                        historyDiv.appendChild(txElement);
-                    });
-                } else {
-                    historyDiv.innerText = 'No transaction history available.';
-                }
-            } catch (error) {
-                alert("An error occurred: " + error.message);
-            }
-        }
     </script>
-
-    <nav style="text-align: center; margin-bottom: 20px;" class="navhead">
-        <a class="indexlink" href="#" style="margin: 0 15px; font-family: 'Clash Display', sans-serif; font-weight: 400;" onclick="transaction()">Send</a>
-        <a class="indexlink" href="#" style="margin: 0 15px; font-family: 'Clash Display', sans-serif; font-weight: 400;" onclick="showWalletAddress()">Receive</a>
-        <a class="indexlink" href="#" style="margin: 0 15px; font-family: 'Clash Display', sans-serif; font-weight: 400;" onclick="showTransactionHistory()">History</a>
-    </nav>
-
-    <div id="transaction-history" style="text-align: center; margin-top: 20px;">
-        <!-- Transaction history will be displayed here -->
-    </div>
+        <nav style="text-align: center; margin-bottom: 20px;" class="navhead">
+            <a class="indexlink" href="index.html" style="margin: 0 15px; font-family: 'Clash Display', sans-serif; font-weight: 400;">Home</a>
+            <a class="indexlink" href="" style="margin: 0 15px; font-family: 'Clash Display', sans-serif; font-weight: 400;" onclick="transaction()">Send</a>
+            <a class="indexlink" href="" style="margin: 0 15px; font-family: 'Clash Display', sans-serif; font-weight: 400;">Receive</a>
+            <a class="indexlink" href="" style="margin: 0 15px; font-family: 'Clash Display', sans-serif; font-weight: 400;">About</a>
+        </nav>
+        <h2 align="center" class="h2made" style="font-family: 'Clash Display', sans-serif; font-weight: 400; color: white;">Made by <a href="http://t.me/bzrvv007" style="font-family: 'Clash Display', sans-serif; font-weight: 400; color: white;">@ebzrvf</a></h2>
+        <h2 align="center" class="h2made1" style="font-family: 'Clash Display', sans-serif; font-weight: 400; color: white;">Currently site is on beta test stage. Be ready for really huge updates.</h2>
 </body>
 </html>

@@ -10,7 +10,7 @@ body {
 }
 
 .navhead {
-    padding-top: 700px;
+    padding-top: 600px;
 }
 
 h1 {
@@ -33,32 +33,14 @@ h1 {
     background-color: #222222;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+a {
+    text-decoration: none;
 }
 
-button:hover {
-    background-color: #0056b3;
+.h2made {
+    padding-top: 40px;
 }
 
-input[type="text"], input[type="number"] {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-}
-
-form {
-    text-align: center;
-    margin-top: 20px;
-}
-
-label {
-    color: white;
+.h2made1 {
+    padding: 1px;
 }
