@@ -3,19 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="./images/notcycle.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@1&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
     <title>NOTWallet</title>
 </head>
 <body>
-    <h1 align="center">NOTWallet</h1>
+    <h1 align="center" style="font-family: 'Clash Display', sans-serif; font-weight: 400;">NOTWallet</h1>
+    <h1 align="center" style="font-family: 'Clash Display', sans-serif; font-weight: 400;">The new era of Crypto Wallet's</h1>
     <div id="connect" style="position: absolute; top: 2%; right: 2%;"></div>
     <script>
         const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-            manifestUrl: 'https://ebzrvf.github.io/notwallet/tonconnect-manifest.json',
+            manifestUrl: 'index.html/tonconnect-manifest.json',
             buttonRootId: 'connect'
-        })
+        });
+        
+        async function transaction() {
+            try {
+                const recipient = prompt("Enter recipient address:");
+                const amount = prompt("Enter amount to send:");
+
+                if (!recipient || !amount) {
+                    alert("Recipient and amount are required.");
+                    return;
+                }
+
+                const transactionDetails = {
+                    to: recipient,
+                    value: amount,
+                    data: ''
+                };
+
+                const result = await tonConnectUI.sendTransaction(transactionDetails);
+
+                if (result.success) {
+                    alert("Transaction successful!");
+                } else {
+                    alert("Transaction failed: " + result.error);
+                }
+            } catch (error) {
+                alert("An error occurred: " + error.message);
+            }
+        }
+
+        async function showTransactionHistory() {
+            try {
+                const history = await tonConnectUI.getTransactionHistory();
+                const historyDiv = document.getElementById('transaction-history');
+                historyDiv.innerHTML = '';
+
+                if (history && history.length > 0) {
+                    history.forEach(tx => {
+                        const txElement = document.createElement('div');
+                        txElement.innerText = `To: ${tx.to}, Amount: ${tx.value}, Date: ${new Date(tx.timestamp).toLocaleString()}`;
+                        historyDiv.appendChild(txElement);
+                    });
+                } else {
+                    historyDiv.innerText = 'No transaction history available.';
+                }
+            } catch (error) {
+                alert("An error occurred: " + error.message);
+            }
+        }
     </script>
+
+    <nav style="text-align: center; margin-bottom: 20px;" class="navhead">
+        <a class="indexlink" href="#" style="margin: 0 15px; font-family: 'Clash Display', sans-serif; font-weight: 400;" onclick="transaction()">Send</a>
+        <a class="indexlink" href="#" style="margin: 0 15px; font-family: 'Clash Display', sans-serif; font-weight: 400;" onclick="showWalletAddress()">Receive</a>
+        <a class="indexlink" href="#" style="margin: 0 15px; font-family: 'Clash Display', sans-serif; font-weight: 400;" onclick="showTransactionHistory()">History</a>
+    </nav>
+
+    <div id="transaction-history" style="text-align: center; margin-top: 20px;">
+        <!-- Transaction history will be displayed here -->
+    </div>
 </body>
 </html>

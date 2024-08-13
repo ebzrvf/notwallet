@@ -1,0 +1,64 @@
+body {
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 400;
+    background-color: black;
+}
+
+.indexlink {
+    text-decoration: none;
+    color: white;
+}
+
+.navhead {
+    padding-top: 700px;
+}
+
+h1 {
+    color: white;
+}
+
+.navhead a {
+    margin: 0 15px;
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 400;
+    padding: 10px 20px;
+    background-color: #555555;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.navhead a:hover {
+    background-color: #222222;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+label {
+    color: white;
+}
